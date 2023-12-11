@@ -27,12 +27,10 @@ def main():
                     columns[col] += 1
                     galaxies.append((row, col))
 
-
+            row += 1
             if line.count('#') == 0:
-                row += 1000000
-            else:
-                row += 1
-
+                row += 999999
+ 
     for col in range(len(columns) - 1, 0, -1):
         if columns[col] == 0:
             for i in range(len(galaxies)):
