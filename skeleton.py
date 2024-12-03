@@ -7,7 +7,7 @@ import sys
 # constants
 day = "XX"
 part = "Y"
-year = "2024"
+year = "ZZZZ"
 
 # script description
 aoc_name = f"Advent of Code {year} - Day {day} - Part {part}"
