@@ -9,7 +9,7 @@ def next_elf(file):
 def main():
     print("starting")
     most_calories = 0
-    with open("input-01.txt", "r") as f:
+    with open("inputs/input-01.txt", "r") as f:
         this_elf = next_elf(f)
         while this_elf != 0:
             if this_elf > most_calories:

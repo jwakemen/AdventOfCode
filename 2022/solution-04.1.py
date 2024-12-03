@@ -15,7 +15,7 @@ def main():
     print("starting")
     score = 0
     done = False
-    with open("input-04.txt", "r") as f:
+    with open("inputs/input-04.txt", "r") as f:
         for line in f:
             print(line.strip())
             assignments = get_assignments(line)

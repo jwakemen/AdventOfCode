@@ -16,7 +16,7 @@ def find_message(packet):
 
 def main():
     print("starting")
-    with open("input-06.txt", "r") as f:
+    with open("inputs/input-06.txt", "r") as f:
         line = f.readline().strip()
         packet = find_packet(line)
         message = find_message(line[packet:])

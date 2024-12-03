@@ -17,7 +17,7 @@ def find_error(sack):
 def main():
     print("starting")
     score = 0
-    with open("input-03.txt", "r") as f:
+    with open("inputs/input-03.txt", "r") as f:
         for line in f:
             score += priority(find_error(line.strip()))
             print("line: {0} = {1}".format(line.strip(), priority(find_error(line.strip()))))

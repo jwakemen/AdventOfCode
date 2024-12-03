@@ -17,7 +17,7 @@ def process(line, stacks):
 def main():
     print("starting")
     stacks = [[],[],[],[],[],[],[],[],[]]
-    with open("input-05.txt", "r") as f:
+    with open("inputs/input-05.txt", "r") as f:
         line = f.readline().strip()
         while line != "":
             input = ""

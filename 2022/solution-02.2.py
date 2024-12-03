@@ -15,7 +15,7 @@ def result_score(throw):
 def main():
     print("starting")
     score = 0
-    with open("input-02.txt", "r") as f:
+    with open("inputs/input-02.txt", "r") as f:
         for line in f:
             score += result_score(line)
             print("line: {0} = {1}".format(line[:3], result_score(line)))
