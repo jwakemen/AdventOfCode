@@ -1,7 +1,7 @@
 # imports
 
 # constants
-filename = "input-06.txt"
+filename = "inputs/input-06.txt"
 
 # functions
 def process_times(times, distances):

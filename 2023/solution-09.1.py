@@ -1,7 +1,7 @@
 # imports
 
 # constants
-filename = "input-09.txt"
+filename = "inputs/input-09.txt"
 
 # functions
 def parse_line(line):

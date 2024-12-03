@@ -2,7 +2,7 @@
 import re
 
 # constants for day 1, solution 1
-filename = "input-01.txt"
+filename = "inputs/input-01.txt"
 
 # functions for day 1, solution 1
 def get_calibration(line):

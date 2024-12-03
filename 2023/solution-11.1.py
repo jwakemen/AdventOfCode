@@ -1,7 +1,7 @@
 # imports
 
 # constants
-filename = "input-11.txt"
+filename = "inputs/input-11.txt"
 
 # functions
 

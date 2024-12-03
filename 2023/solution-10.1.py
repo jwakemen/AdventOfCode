@@ -1,7 +1,7 @@
 # imports
 
 # constants
-filename = "input-10.txt"
+filename = "inputs/input-10.txt"
 
 # functions
 def read_data(f):

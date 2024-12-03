@@ -1,7 +1,7 @@
 # imports
 
 # constants
-filename = "input-12.txt"
+filename = "inputs/input-12.txt"
 
 # functions
 def count_springs(line):

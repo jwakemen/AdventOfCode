@@ -2,7 +2,7 @@
 import re, sys
 
 # constants
-filename = "input-05.txt"
+filename = "inputs/input-05.txt"
 
 # functions
 def get_seeds(f):

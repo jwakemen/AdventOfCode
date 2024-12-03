@@ -2,7 +2,7 @@
 import re, math
 
 # constants
-filename = "input-08.txt"
+filename = "inputs/input-08.txt"
 
 # functions
 def get_instructions(f):

@@ -2,7 +2,7 @@
 import re
 
 # constants
-filename = "input-03.txt"
+filename = "inputs/input-03.txt"
 
 # functions
 def pre_process(f):

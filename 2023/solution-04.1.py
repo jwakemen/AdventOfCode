@@ -1,7 +1,7 @@
 # imports
 
 # constants
-filename = "input-04.txt"
+filename = "inputs/input-04.txt"
 
 # functions
 def pre_process(f):
