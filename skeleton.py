@@ -10,12 +10,12 @@ part = 0
 year = 0
 
 # script description
-aoc_name = f"Advent of Code {year:4} - Day {day:2} - Part {part:1}"
+aoc_name = f"Advent of Code {year:04} - Day {day:02} - Part {part:01}"
 
 # file paths
-infile  = f"inputs/input-{day:2}.txt"
-outfile = f"outputs/output-{day:2}.{part:1}.txt"
-logfile = f"logs/solution-{day:2}.{part:1}.log"
+infile  = f"inputs/input-{day:02}.txt"
+outfile = f"outputs/output-{day:02}.{part:01}.txt"
+logfile = f"logs/solution-{day:02}.{part:01}.log"
 
 # logger
 logger = logging.getLogger(aoc_name)
@@ -23,7 +23,7 @@ logger.setLevel(logging.DEBUG)
 
 # functions
 def get_args():
-    arg_parser = argparse.ArgumentParser(description=aoc_name, epilog=f"see: https://adventofcode.com/{year:4}/day/{day}")
+    arg_parser = argparse.ArgumentParser(description=aoc_name, epilog=f"see: https://adventofcode.com/{year:04}/day/{day}")
     arg_parser.add_argument("-l", "--log", help="set file log level [default: %(default)s]", default="DEBUG", metavar="LEVEL")
     arg_parser.add_argument("-c", "--con", help="set console log level [default: %(default)s]", default="WARNING", metavar="LEVEL")
     return arg_parser.parse_args()
