@@ -2,14 +2,14 @@
 import re
 
 # constants for day 1, solution 1
-filename = "input-01.txt"
+filename = "inputs/input-01.txt"
 
 # functions for day 1, solution 1
 def get_calibration(line):
     pattern = re.compile(r"\d|one|two|three|four|five|six|seven|eight|nine")
     first_match = pattern.search(line)
     next_match = first_match
-    while next_match != None:
+    while next_match is not None:
         last_match = next_match
         next_match = pattern.search(line, next_match.pos + 1)
     first_char = decode(first_match.group())

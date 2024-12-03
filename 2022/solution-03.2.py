@@ -20,10 +20,10 @@ def main():
     print("starting")
     score = 0
     done = False
-    with open("input-03.txt", "r") as f:
+    with open("inputs/input-03.txt", "r") as f:
         while not done:
             elf1, elf2, elf3 = get_group(f)
-            if elf1 == None:
+            if elf1 is None:
                 done = True
                 break
 
