@@ -1,13 +1,14 @@
 # imports
 
 # constants
-filename = "input-02.txt"
+filename = "inputs/input-02.txt"
 
 # functions
 def get_game(line):
     split = line.split(":")
     raw_title = split[0]
-    raw_pulls = list(map(lambda x: x.strip(), split[1].split(";")))
+    # raw_pulls = list(map(lambda x: x.strip(), split[1].split(";")))
+    raw_pulls = list([x.strip() for x in split[1].split(";")])
     pulls = list(map(parse_pulls, raw_pulls))
     return parse_game({
         "title": raw_title,
@@ -23,7 +24,8 @@ def parse_game(raw_game):
     }
 
 def parse_pulls(raw_pulls):
-    split = list(map(lambda x: x.strip(), raw_pulls.split(",")))
+    # split = list(map(lambda x: x.strip(), raw_pulls.split(",")))
+    split = list([x.strip() for x in raw_pulls.split(",")])
     pull = {}
     for p in split:
         tokens = p.split(" ")

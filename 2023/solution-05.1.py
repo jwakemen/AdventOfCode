@@ -2,12 +2,12 @@
 import re
 
 # constants
-filename = "input-05.txt"
+filename = "inputs/input-05.txt"
 
 # functions
 def get_seeds(f):
     line = f.readline()
-    seeds = list(map(lambda x: {"seed": x}, list(map(int, line.split(":")[1].split()))))
+    seeds = list([{"seed": x} for x in list(map(int, line.split(":")[1].split()))])
 
     # read in the blank line
     f.readline()
