@@ -24,7 +24,7 @@ logger.setLevel(logging.DEBUG)
 # functions
 def get_args():
     arg_parser = argparse.ArgumentParser(description=aoc_name, epilog=f"see: https://adventofcode.com/{year:04}/day/{day}")
-    arg_parser.add_argument("-l", "--log", help="set file log level [default: %(default)s]", default="DEBUG", metavar="LEVEL")
+    arg_parser.add_argument("-l", "--log", help="set file log level [default: %(default)s]", default="INFO", metavar="LEVEL")
     arg_parser.add_argument("-c", "--con", help="set console log level [default: %(default)s]", default="WARNING", metavar="LEVEL")
     return arg_parser.parse_args()
 

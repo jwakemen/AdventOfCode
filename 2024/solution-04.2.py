@@ -25,7 +25,7 @@ logger.setLevel(logging.DEBUG)
 # functions
 def get_args():
     arg_parser = argparse.ArgumentParser(description=aoc_name, epilog=f"see: https://adventofcode.com/{year:04}/day/{day}")
-    arg_parser.add_argument("-l", "--log", help="set file log level [default: %(default)s]", default="DEBUG", metavar="LEVEL")
+    arg_parser.add_argument("-l", "--log", help="set file log level [default: %(default)s]", default="INFO", metavar="LEVEL")
     arg_parser.add_argument("-c", "--con", help="set console log level [default: %(default)s]", default="WARNING", metavar="LEVEL")
     return arg_parser.parse_args()
 
@@ -48,7 +48,7 @@ def setup_logger(args):
     return logger
 
 def find_xmas(lines, center_row, center_col):
-    logger.debug(f"Checking: {center_row}, {center_col}")
+    logger.info(f"Checking: {center_row}, {center_col}")
     
     # check for space
     if center_row - 1 < 0 or center_row + 1 >= len(lines) or center_col - 1 < 0 or center_col + 1 >= len(lines[0]):
@@ -62,7 +62,7 @@ def find_xmas(lines, center_row, center_col):
     if (d1 != "MAS" and d1 != "SAM") or (d2 != "MAS" and d2 != "SAM"):
         logger.debug(f"Not X-MAS: {center_row}, {center_col}")
         return 0
-    logger.debug(f"Found X-MAS: {center_row}, {center_col}")
+    logger.info(f"Found X-MAS: {center_row}, {center_col}")
     return 1
     
 def count_xmas(lines):

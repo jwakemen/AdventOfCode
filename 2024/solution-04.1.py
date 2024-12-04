@@ -25,7 +25,7 @@ logger.setLevel(logging.DEBUG)
 # functions
 def get_args():
     arg_parser = argparse.ArgumentParser(description=aoc_name, epilog=f"see: https://adventofcode.com/{year:04}/day/{day}")
-    arg_parser.add_argument("-l", "--log", help="set file log level [default: %(default)s]", default="DEBUG", metavar="LEVEL")
+    arg_parser.add_argument("-l", "--log", help="set file log level [default: %(default)s]", default="INFO", metavar="LEVEL")
     arg_parser.add_argument("-c", "--con", help="set console log level [default: %(default)s]", default="WARNING", metavar="LEVEL")
     return arg_parser.parse_args()
 
@@ -68,14 +68,14 @@ def find_xmas(lines, start_row, start_col, direction):
     if c1 + c2 + c3 + c4 != "XMAS":
         logger.debug(f"Not XMAS: {row}, {col}, {direction} - {c1 + c2 + c3 + c4}")
         return 0
-    logger.debug(f"Found XMAS: {start_row}, {start_col}, {direction} - {c1 + c2 + c3 + c4}")
+    logger.info(f"Found XMAS: {start_row}, {start_col}, {direction} - {c1 + c2 + c3 + c4}")
     return 1
 
 def count_xmas_from_point(lines, row, col):
     count = 0
     logger.debug(f"Checking: {row}, {col} - Char: {lines[row][col]}")
     if lines[row][col] == "X":
-        logger.debug(f"Found X: {row}, {col} - Checking directions")       
+        logger.info(f"Found X: {row}, {col} - Checking directions")       
         for direction in dirs:
             count += find_xmas(lines, row, col, direction)
 
