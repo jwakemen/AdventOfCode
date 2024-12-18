@@ -4,6 +4,7 @@ import colorlog
 import argparse
 import sys
 import networkx as nx
+from visualizer import GraphVisualizer
 
 # constants
 day = 18
@@ -52,19 +53,22 @@ def main():
     # setup
     args = get_args()
     logger = setup_logger(args)
+    vis = GraphVisualizer()
     
     # initialize variables
     total = 0
 
     logger.info("Starting")
     map = {(x, y): "." for x in range(71) for y in range(71)}
-   
+    vis.show_frame(map)
+
     # open the input file
     with open(infile, "r") as f:
         # Read the input file
         for _ in range(1024):
-            x, y = [int(x) for x in f.readline().strip().split(",")]
+            x, y = [int(n) for n in f.readline().strip().split(",")]
             map[(x,y)] = "#"
+            vis.show_frame(map)
 
     # create the graph
     G = nx.Graph()
@@ -85,6 +89,11 @@ def main():
     start = (0,0)
     end = (70,70)
     total = nx.shortest_path_length(G, start, end)
+
+    # show the path
+    for x, y in nx.shortest_path(G, start, end):
+        map[(x,y)] = "*"
+        vis.show_frame(map)
 
     # finish up and log the total
     logger.info("Complete")
