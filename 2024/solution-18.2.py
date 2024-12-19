@@ -4,6 +4,7 @@ import colorlog
 import argparse
 import sys
 import networkx as nx
+from visualizer import GraphVisualizer
 
 # constants
 day = 18
@@ -52,6 +53,7 @@ def main():
     # setup
     args = get_args()
     logger = setup_logger(args)
+    vis = GraphVisualizer()
     
     # initialize variables
     total = 0
@@ -66,6 +68,7 @@ def main():
     for _ in range(1024):
         x, y = [int(x) for x in f.readline().strip().split(",")]
         map[(x,y)] = "#"
+    vis.show_frame(map)
 
     # create the graph
     G = nx.Graph()
@@ -86,16 +89,29 @@ def main():
     start = (0,0)
     end = (70,70)
     total = nx.shortest_path_length(G, start, end)
+    path = []
 
     while f:
         i,j = [int(x) for x in f.readline().strip().split(",")]
         G.remove_node((i,j))
+        map[(i,j)] = "#"
+        
         try:
+            old = path.copy()
+            path = nx.shortest_path(G, start, end)
+            for x, y in old:
+                map[(x,y)] = "."
+            for x, y in path:
+                map[(x,y)] = "*"
             total = nx.shortest_path_length(G, start, end)
+            vis.show_frame(map)
+
         except Exception as e:
             logger.error(f"Blocked path: {i},{j} - {e}")
             break
 
+    map[(i,j)] = "#"
+    vis.show_frame(map)
     logger.info(f"First blocked path: {i},{j}")
 
     # finish up and log the total
