@@ -49,3 +49,44 @@ class GraphVisualizer:
         self.frames += 1
         time.sleep(frametime)
 
+class GridVisualizer:
+    def __init__(self):
+        self.term = Terminal()
+        self.frames = 0
+        self.num_lines = 0
+        self.char_maps = {
+            '#': self.term.blue_bold(u'\u2588'),
+            '[': self.term.green_bold('['),
+            ']': self.term.green_bold(']'),
+            'O': self.term.green_bold('O'),
+            '@': self.term.red_bold('@'),
+            '*': self.term.red_bold(u'\u25CF'),
+            '.': ' '
+        }
+        print(self.term.clear)
+
+    def __get_char__(self, c: str) -> str:
+        return self.char_maps[c] if c in self.char_maps else c
+    
+    def show_frame(self, grid: List[List[str]], frametime=0):
+        """
+        Print out a frame to the terminal. It will print on top of the last frame.
+
+        grid: A 2d list of characters
+        frametime: How long each frame should remain on the screen in seconds
+
+        [0][0] is the top-left corner
+        """
+        print(self.term.home)
+        
+        info = f'Move: {self.frames+1}\n'
+        frame = info + '\n'.join([''.join([self.__get_char__(c) for c in row]) for row in grid])
+        if self.frames == 0:
+            self.num_lines = len(grid)
+        else:
+            assert self.num_lines == len(grid)
+
+        print(frame)
+
+        self.frames += 1
+        time.sleep(frametime)
